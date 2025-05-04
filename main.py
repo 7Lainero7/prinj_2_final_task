@@ -3,10 +3,12 @@ import streamlit as st
 
 
 def is_string(variable):
+    """Check if variable is string."""
     return isinstance(variable, str)
 
 
 def read_text_from_photo(reader, photo):
+    """Extract text from photo using OCR."""
     detection = reader.readtext(photo)
     text = ""
     for row in detection:
@@ -17,10 +19,12 @@ def read_text_from_photo(reader, photo):
 
 
 def main():
+    """Main application function."""
     reader = easyocr.Reader(['ru', 'en'])
     st.title("Загрузка фотографии, с которой вы хотите получить текст")
     st.write("Тестовая ссылка:")
-    st.write("https://static1.wow2print.com/storage/65/gallery/image/1896205816629f8ee1d12786.96956893.webp")
+    test_url = "https://static1.wow2print.com/storage/65/gallery/image/1896205816629f8ee1d12786.96956893.webp"  # noqa: E501
+    st.write(test_url)
 
     photo = st.text_input("Вставьте url фотографии")
 
@@ -35,7 +39,7 @@ def main():
             else:
                 st.write("Нейросети не удалось распознать текст")
         except Exception as e:
-            st.error(f"Произошла ошибка:{str(e)}")
+            st.error(f"Произошла ошибка: {str(e)}")
 
 
 if __name__ == "__main__":
