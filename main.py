@@ -35,7 +35,7 @@ def main():
             else:
                 st.write("Нейросети не удалось распознать текст")
         except Exception as e:
-            st.error(f"Произошла ошибка: {str(e)}")
+            st.error(f"Произошла ошибка:{str(e)}")
 
 
 if __name__ == "__main__":
