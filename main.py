@@ -1,4 +1,4 @@
-from functions import recognize_text_from_image
+
 from test import test_recognizing_text
 
 
